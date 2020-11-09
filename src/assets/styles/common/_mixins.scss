@@ -1,8 +1,8 @@
 // Mixins
 
 // Font Style
-@mixin fontStyle($fontFamily: null, $fontSize: null, $lineHeight: null, $color: null){
-    font-family: $fontFamily;
+@mixin fontStyle($fontWeight: null, $fontSize: null, $lineHeight: null, $color: null){
+    font-weight: $fontWeight;
     font-size: $fontSize+px;
     line-height: $lineHeight+px;
     color: $color;

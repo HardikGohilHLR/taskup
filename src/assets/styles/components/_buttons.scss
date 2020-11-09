@@ -1,0 +1,18 @@
+// Buttons
+.task-btn{
+    @include fontStyle(600, 14, 28, $white);
+    padding: 4px 22px;
+    border-radius: 12px;
+    transition: 0.3s linear; 
+
+    i{
+        display: inline-block;
+        margin-right: 8px;
+    }
+    &-blue{
+        background: $blue;
+        &:hover{
+            box-shadow: 0 0 6px rgba($blue, 0.6);
+        }
+    }
+}

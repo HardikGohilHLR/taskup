@@ -1,0 +1,41 @@
+// Task types
+.task-types{
+    @include flex_center_center;
+    margin: 30px 0;
+    ul{ 
+        @include flex_align_center;
+        box-shadow: 0 0 8px 8px rgba(59, 43, 43, 0.01);
+        border-radius: 8px; 
+        max-width: 400px;
+        width: 100%;
+        li{
+            max-width: 200px;
+            width: 100%;
+            &.active{
+                button{
+                    transition: 0.2s linear;
+                    box-shadow: 0 10px 6px -6px rgba(0, 0, 0, 0.1);
+                    color: $theme_black;
+                }
+            }
+            &:first-child{
+                button{
+                    border-radius: 8px 0 0 8px;
+                }
+            }
+            &:last-child{
+                button{
+                    border-radius: 0 8px 8px 0;
+                }
+            }
+        }
+        button{            
+            background: $white;
+            @include fontStyle(600, 16, 28, $lightBlack);
+            padding: 8px 26px;
+            text-transform: capitalize;
+            cursor: pointer; 
+            width: 100%;
+        }
+    }   
+}

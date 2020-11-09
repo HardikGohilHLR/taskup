@@ -19,3 +19,8 @@
     src: url('../fonts/Gilroy-Bold.woff') format('woff'); 
     font-display: swap;
 }
+
+
+p{
+    @include fontStyle(400, 16, 26, $theme_black);
+}

@@ -2,3 +2,11 @@
 @import 'common/variables'; /* Variables */
 @import 'common/mixins'; /* Mixins */
 @import 'common/typography'; /* Typography */
+
+// Components
+@import './components/buttons'; /* Buttons */
+@import './components/task_type'; /* Task type */
+@import './components/popup'; /* Popup */
+
+// Pages
+@import './pages/home'; /* Home page */
