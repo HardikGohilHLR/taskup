@@ -1,0 +1,49 @@
+// Mixins
+
+// Font Style
+@mixin fontStyle($fontWeight: null, $fontSize: null, $lineHeight: null, $color: null){
+    font-weight: $fontWeight;
+    font-size: $fontSize+px;
+    line-height: $lineHeight+px;
+    color: $color;
+}
+@mixin mediaFontStyle($fontSize: null, $lineHeight: null){
+    font-size: $fontSize+px;
+    line-height: $lineHeight+px;
+}
+
+// Flex
+@mixin flex { display: flex; }
+
+@mixin align_center { align-items: center; }
+
+@mixin justify_center { justify-content: center; }
+@mixin justify_between { justify-content: space-between; }
+@mixin justify_end { justify-content: flex-end; }
+
+@mixin flex_align_center { 
+    @include flex;
+    @include align_center;
+}
+@mixin flex_justify_center {
+    @include flex;
+    @include justify_center;
+}
+@mixin flex_center_between {
+    @include flex_align_center;
+    @include justify_between;
+}
+@mixin flex_center_center {
+    @include flex_align_center;
+    @include justify_center;
+}
+
+@mixin flex_column {
+    flex-direction: column;
+}
+
+// Content
+@mixin content{
+    content: '';
+    position: absolute;
+}

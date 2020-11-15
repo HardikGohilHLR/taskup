@@ -1,0 +1,134 @@
+// Add Task
+.task-content{
+    h2{
+        margin-bottom: 20px;
+        text-align: center;
+        padding: 0 20px;
+    }
+}
+.task-add-form{
+    .form-group{
+        width: 100%;
+        padding: 5px 0;
+        > label{
+            display: block;
+            @include fontStyle(700, 16, 22, $theme_black);
+            text-transform: capitalize;
+            margin-bottom: 2px;
+            span{                
+                @include fontStyle(700, 12, 22, $green);
+            }
+        }
+        input, textarea{
+            padding: 6px 16px;
+            border: none;
+            outline: none;
+            @include fontStyle(600, 14, 26, $theme_black);
+            background: $input;
+            border-radius: 4px;
+            resize: none;
+            width: 100%;
+        }
+        .task-error-msg {
+            display: block;
+            @include fontStyle(400, 12, 20, $red);
+        }
+    }
+
+    .form-radio-group{
+        @include flex_align_center;
+        .form-group-radio{
+            position: relative;
+            max-width: 100px;
+            width: 100%;
+            margin-right: 15px;
+        }
+        label{
+            width: 100%;
+            text-align: center;
+            padding: 10px;
+            display: block;
+            border-radius: 4px;
+            cursor: pointer;
+            @include fontStyle(700, 14, 20, $theme_black);
+            transition: 0.3s linear;
+            position: relative;
+            text-transform: capitalize;
+            &.to-do{
+                background: rgba($blue, 0.2);
+                &:hover{
+                    background: $blue;
+                    color: $white;
+                }
+            }   
+            &.in-progress{
+                background: rgba($yellow, 0.2);
+                &:hover{
+                    background: $yellow;
+                }
+            }
+            &.done{
+                background: rgba($green, 0.2);
+                &:hover{
+                    background: $green;
+                    color: $white;
+                }
+            }
+        }
+        .form-radio-checked{    
+            background: $white;
+            width: 14px;
+            height: 14px;
+            border-radius: 50%;
+            display: block;
+            position: absolute;
+            top: -5px;
+            right: -5px;
+            box-shadow: 0 0 2px rgba($theme_black, 0.4);
+            opacity: 0;
+            transition: 0.2s linear;
+            &:after{
+                @include content;
+                top: 4px;
+                right: 3px;
+                width: 7px;
+                height: 3px;
+                background: transparent;
+                border: 1px solid $black;
+                border-top: 0;
+                border-right: 0;
+                transform: rotate(-45deg);
+            }
+        }
+        input{
+            position: absolute;
+            opacity: 0;
+            &:checked + label{
+                &.to-do{
+                    background: $blue; 
+                    color: $white;                   
+                }   
+                &.in-progress{
+                    background: $yellow;                    
+                }
+                &.done{
+                    background: $green;  
+                    color: $white;                  
+                }
+                .form-radio-checked{
+                    opacity: 1;
+                }
+            }
+        }
+    }
+    .btn-group{
+        text-align: center;
+        padding: 15px 0 10px;
+        button {
+            text-transform: uppercase;
+            letter-spacing: 1.3px; 
+            max-width: 200px;
+            width: 100%;
+        }
+    }
+}
