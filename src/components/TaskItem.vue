@@ -1,6 +1,6 @@
 <template>
     <div class="task-item">
-        task
+        {{task}}
     </div>
 </template>
 
@@ -8,6 +8,11 @@
 
 export default {
     name: 'TaskItem',
+    props: {
+        task: {
+            type: Object
+        }
+    }
 }
 
 </script>

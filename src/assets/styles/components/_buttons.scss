@@ -15,4 +15,16 @@
             box-shadow: 0 0 6px rgba($blue, 0.6);
         }
     }
+    &-green{
+        background: $green;
+        &:hover{
+            box-shadow: 0 0 6px rgba($green, 0.6);
+        }
+    }
+    &-black{
+        background: $theme_black;
+        &:hover{
+            box-shadow: 0 0 6px rgba($theme_black, 0.6);
+        }
+    }
 }

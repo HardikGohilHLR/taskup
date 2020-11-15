@@ -3,7 +3,7 @@
     position: fixed;
     width: 100%;
     height: 100%;
-    background: rgba($black, 0.2);
+    background: rgba($black, 0.4);
     left: 0;
     top: 0;
 
@@ -15,5 +15,13 @@
         left: 50%;
         top: 50%;
         transform: translate(-50%, -50%);
+        padding: 20px;
+        border-radius: 4px;
+    }
+
+    .task-close-popup{
+        position: absolute;
+        top: 15px;
+        right: 15px;
     }
 }

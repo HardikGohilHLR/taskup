@@ -37,12 +37,12 @@
                 </div>    
 
                 <div class="task-wpr">
-                    <TaskItem />
+                    <TaskItem v-for="task in tasks" :key="task.task_id" :task="task"/>
                 </div>    
 
             </div>
 
-            <Popup v-if="popup_active"/>
+            <Popup v-if="popup_active" @closePopup="closePopup"/>
             
         </div>
     </div>
@@ -63,19 +63,38 @@ export default {
     data(){
         return { 
             task_types: [ 
+                { title: 'todo', is_active: false },
                 { title: 'in-progress', is_active: true },
                 { title: 'completed', is_active: false },                          
             ],
             popup_active: false,
-            popup: ''   
+            popup: '',
+            tasks: []   
         }
     },
+
+    mounted(){
+        this.getAllTasks();
+    },
+
     methods: {
+        // Get All Task
+        getAllTasks(){
+            let taskup_tasks = JSON.parse(localStorage.getItem('taskup_tasks'));
+
+            this.tasks = taskup_tasks;
+        },
+
         // Add Task
         addTask() {
-            console.log('add task');
             this.popup_active = true;
             this.popup = 'add_task';
+        },
+    
+        // Close Popup
+        closePopup(){
+            this.popup_active = false;
+            this.popup = '';
         },
 
         // Task type
