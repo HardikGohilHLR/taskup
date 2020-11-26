@@ -25,6 +25,16 @@
             </div>
         </div>
 
+        <div class="form-group">
+            <label for="task_color">color</label>
+            <div class="form-radio-group">
+                <div class="form-group-radio" v-for="color in task_colors" :key="color">
+                    <input type="radio" :id="color" name="task_color" :value="color" v-model="task_color">
+                    <label :for="color" :class="color">{{ color }}<span class="form-radio-checked"></span></label>
+                </div>                
+            </div>
+        </div>
+
         <div class="btn-group">
             <button type="button" class="task-btn task-btn-green" @click="createTask">Create Task</button>
         </div>
@@ -49,6 +59,8 @@ export default {
                 { title: 'in-progress', is_checked: false},
                 { title: 'done', is_checked: false},
             ], 
+            task_color: 'f76f8c',
+            task_colors: ['f76f8c', '0EBC7D', '306bdd', '8676fe']
         }
     },
     methods: {
