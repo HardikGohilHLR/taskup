@@ -1,6 +1,8 @@
 <template>
-    <div class="task-item">
-        {{task}}
+    <div class="task-item" :class="[current_color]">
+        <div class="tasktup-task-title">
+            <h3>{{ task.task_name }}</h3>
+        </div>
     </div>
 </template>
 
@@ -12,7 +14,12 @@ export default {
         task: {
             type: Object
         }
-    }
+    },
+    data(){
+        return {
+            current_color: this.task.task_color.color
+        }
+    },
 }
 
 </script>

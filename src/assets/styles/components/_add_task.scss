@@ -121,6 +121,32 @@
             }
         }
     }
+    // Colors
+    .form-color-group{
+        .form-group-radio{
+            @include square(25px);
+            margin-right: 5px;
+        }
+        label{
+            @include square(25px);
+            border-radius: 50%;
+            .form-radio-checked{
+                top: 50%;
+                left: 50%;
+                transform: translate(-50%, -50%);
+                background: transparent;
+                box-shadow: none;
+                &:after{
+                    border-color: $white;
+                    border-width: 2px;
+                    top: 4px;
+                    right: 2px;
+                    width: 9px;
+                    height: 4px;
+                }
+            }
+        }
+    }
     .btn-group{
         text-align: right;
         padding: 15px 0 10px;

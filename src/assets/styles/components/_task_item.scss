@@ -1,0 +1,26 @@
+// Task Item
+.task-item{
+    background: $white;
+    border-radius: 4px;
+    border-left: 5px solid $white;
+    padding: 20px;
+
+    .tasktup-task-title{
+        h3{            
+            @include fontStyle(600, 18, 28, $theme_black);
+        }
+    }
+
+    &.pink{
+        border-color: #f76f8c;
+    }
+    &.green{
+        border-color: #0EBC7D;
+    }
+    &.blue{
+        border-color: #306bdd;
+    }
+    &.purple{
+        border-color: #8676fe;
+    }
+}

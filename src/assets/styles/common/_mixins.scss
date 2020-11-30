@@ -47,3 +47,9 @@
     content: '';
     position: absolute;
 }
+
+
+@mixin square($val: null) {
+    width: $val;
+    height: $val;
+}

@@ -36,8 +36,8 @@
                     </ul>
                 </div>    
 
-                <div class="task-wpr">
-                    <TaskItem v-for="task in tasks" :key="task.task_id" :task="task"/>
+                <div class="taskup-wpr">
+                    <Tasks :active_task_type="active_task_type"/>
                 </div>    
 
             </div>
@@ -50,40 +50,30 @@
 
 <script>
 import TaskHeader from "@/components/TaskHeader";
-import TaskItem from "@/components/TaskItem";
+import Tasks from "@/components/Tasks";
 import Popup from "@/components/Popup";
 
 export default {
     name: 'Taskup',
     components: {
         TaskHeader,
-        TaskItem,
-        Popup
+        Popup,
+        Tasks
     }, 
     data(){
         return { 
             task_types: [ 
-                { title: 'todo', is_active: false },
-                { title: 'in-progress', is_active: true },
+                { title: 'to-do', is_active: true },
+                { title: 'in-progress', is_active: false  },
                 { title: 'completed', is_active: false },                          
             ],
+            active_task_type: 'todo',
             popup_active: false,
             popup: '',
-            tasks: []   
         }
     },
 
-    mounted(){
-        this.getAllTasks();
-    },
-
     methods: {
-        // Get All Task
-        getAllTasks(){
-            let taskup_tasks = JSON.parse(localStorage.getItem('taskup_tasks'));
-
-            this.tasks = taskup_tasks;
-        },
 
         // Add Task
         addTask() {
@@ -103,6 +93,8 @@ export default {
             this.task_types.forEach((task) => {
                 task.is_active = task_data.title === task.title ? true: false;
             });
+
+            this.active_task_type = task_data.title;
         }
     }
 }

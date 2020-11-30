@@ -25,12 +25,12 @@
             </div>
         </div>
 
-        <div class="form-group">
+        <div class="form-group form-color-group">
             <label for="task_color">color</label>
             <div class="form-radio-group">
-                <div class="form-group-radio" v-for="color in task_colors" :key="color">
-                    <input type="radio" :id="color" name="task_color" :value="color" v-model="task_color">
-                    <label :for="color" :class="color">{{ color }}<span class="form-radio-checked"></span></label>
+                <div class="form-group-radio" v-for="color in task_colors" :key="color.color">
+                    <input type="radio" :id="color.color" name="task_color" :value="color.code" :checked="color.is_checked" v-model="task_color" :style="{ backgroundColor: color.code }">
+                    <label :for="color.color" :style="{ 'background-color': color.code }"><span class="form-radio-checked"></span></label>
                 </div>                
             </div>
         </div>
@@ -59,8 +59,13 @@ export default {
                 { title: 'in-progress', is_checked: false},
                 { title: 'done', is_checked: false},
             ], 
-            task_color: 'f76f8c',
-            task_colors: ['f76f8c', '0EBC7D', '306bdd', '8676fe']
+            task_color: '#f76f8c',
+            task_colors: [
+                { color: 'pink', code: '#f76f8c', is_checked: true}, 
+                { color: 'green', code: '#0EBC7D', is_checked: false }, 
+                { color: 'blue', code: '#306bdd', is_checked: false }, 
+                { color: 'purple', code: '#8676fe', is_checked: false }
+            ],
         }
     },
     methods: {
@@ -77,7 +82,8 @@ export default {
 
         // Create task
         createTask(){ 
-            
+            console.log('submit');
+             console.log(this.task_colors.find(color => color.is_checked));   
             if(!this.validateForm()) { return; }
 
             let task = {
@@ -85,6 +91,7 @@ export default {
                 task_name: this.task_name,
                 task_desc: this.task_desc,
                 task_status: this.task_status,
+                task_color: this.task_colors.find(color => color.is_checked),
                 task_date: new Date().toISOString()
             };
             
