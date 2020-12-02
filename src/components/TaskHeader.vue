@@ -1,7 +1,7 @@
 <template>
 
     <header>
-        <h2>Hey <span>{{ greetingMessage }}</span> !</h2>
+        <h2>Hey <span>{{ greetingMessage }}</span>!</h2>
         <p>You have some important tasks to do! Please Take a look.</p>
     </header>
 

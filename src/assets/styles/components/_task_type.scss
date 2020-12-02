@@ -36,6 +36,10 @@
             text-transform: capitalize;
             cursor: pointer; 
             width: 100%;
+            @include mediaQuery(576){
+                @include mediaFontStyle(14, 22);
+                padding: 8px;
+            }
         }
     }   
 }

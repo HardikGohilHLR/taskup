@@ -42,6 +42,11 @@
     flex-direction: column;
 }
 
+// Media
+@mixin mediaQuery($point) {
+    @media (max-width: $point+px) { @content; }
+}
+
 // Content
 @mixin content{
     content: '';
