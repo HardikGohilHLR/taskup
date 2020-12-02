@@ -36,12 +36,13 @@
                     </ul>
                 </div>    
 
-                <div class="taskup-wpr">
-                    <Tasks :active_task_type="active_task_type"/>
-                </div>    
+                <!-- Tasks -->
+                <Tasks :active_task_type="active_task_type"/>
+                    
 
             </div>
 
+            <!-- Add task Popup -->
             <Popup v-if="popup_active" @closePopup="closePopup"/>
             
         </div>
@@ -67,7 +68,7 @@ export default {
                 { title: 'in-progress', is_active: false  },
                 { title: 'completed', is_active: false },                          
             ],
-            active_task_type: 'todo',
+            active_task_type: 'to-do',
             popup_active: false,
             popup: '',
         }

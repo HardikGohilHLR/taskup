@@ -4,6 +4,20 @@
     border-radius: 4px;
     border-left: 5px solid $white;
     padding: 20px;
+    margin-bottom: 15px;
+    position: relative;
+    cursor: pointer;
+    &::after{
+        @include content;
+        right: 20px;
+        top: 50%;
+        transform: translateY(-50%) rotate(-45deg);
+        @include square(5px);
+        border: 2px solid $theme_black;
+        border-top: 0;
+        border-left: 0;
+        cursor: pointer;
+    }
 
     .tasktup-task-title{
         h3{            
@@ -23,4 +37,4 @@
     &.purple{
         border-color: #8676fe;
     }
-}
+} 
