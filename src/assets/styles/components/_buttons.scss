@@ -1,6 +1,6 @@
 // Buttons
 .task-btn{
-    @include fontStyle(600, 14, 28, $white);
+    @include fontStyle($semiBold, 14, 28, $white);
     padding: 4px 22px;
     border-radius: 12px;
     transition: 0.3s linear; 

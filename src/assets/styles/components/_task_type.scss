@@ -31,7 +31,7 @@
         }
         button{            
             background: $white;
-            @include fontStyle(600, 16, 28, $lightBlack);
+            @include fontStyle($semiBold, 16, 28, $lightBlack);
             padding: 8px 26px;
             text-transform: capitalize;
             cursor: pointer; 

@@ -1,8 +1,8 @@
 // Mixins
 
 // Font Style
-@mixin fontStyle($fontWeight: null, $fontSize: null, $lineHeight: null, $color: null){
-    font-weight: $fontWeight;
+@mixin fontStyle($fontFamily: null, $fontSize: null, $lineHeight: null, $color: null){
+    font-family: $fontFamily;
     font-size: $fontSize+px;
     line-height: $lineHeight+px;
     color: $color;
@@ -53,3 +53,14 @@
     width: $val;
     height: $val;
 }
+
+
+// Limit line text
+@mixin limitLineText($lines: null) {
+    overflow: hidden;
+    text-overflow: ellipsis;
+    display: -webkit-box;
+    -webkit-line-clamp: $lines; 
+    -webkit-box-orient: vertical;
+}
+

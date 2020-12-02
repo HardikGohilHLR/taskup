@@ -3,10 +3,11 @@
     background: $white;
     border-radius: 4px;
     border-left: 5px solid $white;
-    padding: 20px;
+    padding: 15px 50px 15px 15px;
     margin-bottom: 15px;
     position: relative;
     cursor: pointer;
+
     &::after{
         @include content;
         right: 20px;
@@ -21,8 +22,14 @@
 
     .tasktup-task-title{
         h3{            
-            @include fontStyle(600, 18, 28, $theme_black);
+            @include fontStyle($semiBold, 18, 24, $theme_black);
+            @include limitLineText(1);
         }
+    }
+
+    .taskup-task-date{        
+        @include fontStyle($bold, 12, 18, $lightBlack);
+        display: block;
     }
 
     &.pink{

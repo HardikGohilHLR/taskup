@@ -9,10 +9,14 @@
 header{
     margin: 20px 0;
     h2{
-        @include fontStyle(700, 20, 30, $theme_black);
+        @include fontStyle($regular, 20, 30, $theme_black);
+        padding-bottom: 5px;
+        span{
+            @include fontStyle($medium, 20, 30, $theme_black);
+        }
     }
     p{
-        font-size: 14px;
+        @include fontStyle($medium, 14, 22, $theme_black);
     }
 }
 
@@ -20,7 +24,7 @@ header{
 .task-logo{
     text-align: center;
     h1{
-        @include fontStyle(700, 26, 36, $theme_black);
+        @include fontStyle($bold, 26, 36, $theme_black);
     }
 }
 

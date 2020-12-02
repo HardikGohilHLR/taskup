@@ -22,9 +22,9 @@
 
 
 h2{
-    @include fontStyle(700, 22, 32, $theme_black);
+    @include fontStyle($bold, 22, 32, $theme_black);
 }
 
 p{
-    @include fontStyle(400, 16, 26, $theme_black);
+    @include fontStyle($regular, 16, 26, $theme_black);
 }

@@ -12,18 +12,18 @@
         padding: 5px 0;
         > label{
             display: block;
-            @include fontStyle(700, 16, 22, $theme_black);
+            @include fontStyle($bold, 16, 22, $theme_black);
             text-transform: capitalize;
             margin-bottom: 2px;
             span{                
-                @include fontStyle(700, 12, 22, $green);
+                @include fontStyle($bold, 12, 22, $green);
             }
         }
         input, textarea{
             padding: 6px 16px;
             border: none;
             outline: none;
-            @include fontStyle(600, 14, 26, $theme_black);
+            @include fontStyle($semiBold, 14, 26, $theme_black);
             background: $input;
             border-radius: 4px;
             resize: none;
@@ -31,7 +31,7 @@
         }
         .task-error-msg {
             display: block;
-            @include fontStyle(400, 12, 20, $red);
+            @include fontStyle($regular, 12, 20, $red);
         }
     }
 
@@ -50,7 +50,7 @@
             display: block;
             border-radius: 4px;
             cursor: pointer;
-            @include fontStyle(700, 14, 20, $theme_black);
+            @include fontStyle($bold, 14, 20, $theme_black);
             transition: 0.3s linear;
             position: relative;
             text-transform: capitalize;

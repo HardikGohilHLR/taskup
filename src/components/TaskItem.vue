@@ -3,10 +3,16 @@
         <div class="tasktup-task-title">
             <h3>{{ task.task_name }}</h3>
         </div>
+            
+        <span class="taskup-task-date">{{ getDate(task.task_date) }}</span>
+        
     </div>
 </template>
 
 <script>
+
+// Moment js
+import moment from 'moment';
 
 export default {
     name: 'TaskItem',
@@ -20,6 +26,11 @@ export default {
             current_color: this.task.task_color.color
         }
     },
+    methods: {
+        getDate(date){
+            return  moment(date).fromNow() 
+        }
+    }
 }
 
 </script>
