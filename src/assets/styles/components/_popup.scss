@@ -6,6 +6,7 @@
     background: rgba($black, 0.4);
     left: 0;
     top: 0;
+    z-index: 5;
 
     .task-popup-inner{
         max-width: 500px;

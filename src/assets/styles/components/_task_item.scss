@@ -3,7 +3,7 @@
     background: $white;
     border-radius: 4px;
     border-left: 5px solid $white;
-    padding: 15px 50px 15px 15px;
+    padding: 15px 70px 15px 15px;
     margin-bottom: 15px;
     position: relative;
     cursor: pointer;
@@ -20,7 +20,14 @@
         cursor: pointer;
     }
 
+    &:hover{        
+        .taskup-task-edit{
+            opacity: 1;
+        }
+    }
+
     .tasktup-task-title{
+        margin-bottom: 5px;
         h3{            
             @include fontStyle($semiBold, 18, 24, $theme_black);
             @include limitLineText(1);
@@ -30,6 +37,19 @@
     .taskup-task-date{        
         @include fontStyle($bold, 12, 18, $lightBlack);
         display: block;
+    }
+
+    .taskup-task-edit{
+        position: absolute;
+        opacity: 0;
+        right: 40px;
+        top: 50%;
+        transform: translateY(-50%) rotate(-5deg);
+        transition: 0.2s linear;
+        i{            
+            @include fontStyle(0, 16, 18, $lightBlack);
+            font-weight: 500;
+        }
     }
 
     &.pink{

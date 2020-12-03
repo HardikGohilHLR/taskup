@@ -8,6 +8,7 @@
 
 <script>
 import TaskItem from '@/components/TaskItem';
+
 export default {
     name: 'Tasks',
     props: {

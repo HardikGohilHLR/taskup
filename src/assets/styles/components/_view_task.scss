@@ -1,0 +1,20 @@
+// View Task
+.taskup-view-task-popup{
+    .task-back-popup{
+        padding-bottom: 10px;
+        span{
+            @include fontStyle(0, 16, 24, $theme_black);
+        }
+    }
+}
+
+.taskup-view-task{
+    .taskup-view-task-date{
+        span{
+            background: $input;
+            padding: 5px 10px;
+            border-radius: 4px;
+            @include fontStyle($bold, 12, 24, $theme_black);
+        }
+    }
+}
