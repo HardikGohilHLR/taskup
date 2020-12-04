@@ -1,20 +1,79 @@
 // View Task
 .taskup-view-task-popup{
-    .task-back-popup{
-        padding-bottom: 10px;
-        span{
-            @include fontStyle(0, 16, 24, $theme_black);
+    .task-popup-inner{
+        border-top: 6px solid transparent;
+        
+        &.pink{
+            border-color: #f76f8c;
+        }
+        &.green{
+            border-color: #0EBC7D;
+        }
+        &.blue{
+            border-color: #306bdd;
+        }
+        &.purple{
+            border-color: #8676fe;
+        }
+        .task-back-popup{
+            padding-bottom: 10px;
+            span{
+                @include fontStyle(0, 16, 24, $theme_black);
+            }
         }
     }
 }
 
 .taskup-view-task{
-    .taskup-view-task-date{
+    .taskup-task-status{
         span{
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            padding: 2px 20px;
+            text-transform: capitalize;
+            @include fontStyle($bold, 14, 24, $theme_black);
+            border-radius: 4px;
+
+            &.to-do{
+                background: rgba($blue, 0.2);
+                color: $blue;
+            }   
+            &.in-progress{
+                background: rgba($yellow, 0.2);  
+                color: $yellow;              
+            }
+            &.done{
+                background: rgba($green, 0.2);
+                color: $green;
+            }
+        }   
+    }
+    .taskup-task-content{
+        padding: 20px 0;
+        h2{
+            @include fontStyle($bold, 26, 34, $theme_black);
+            margin-bottom: 10px;
+        }
+        p{
+            font-family: $semiBold;
+            color: $lightBlack; 
+            margin-bottom: 20px;
+        }
+    }
+    .taskup-view-task-date{
+        p{
+            display: inline-block;
             background: $input;
             padding: 5px 10px;
             border-radius: 4px;
-            @include fontStyle($bold, 12, 24, $theme_black);
+            @include fontStyle($medium, 12, 18, $theme_black); 
+            i{
+                margin-right: 5px; 
+            }
+            span{
+                font-family: $bold;
+            }
         }
     }
 }

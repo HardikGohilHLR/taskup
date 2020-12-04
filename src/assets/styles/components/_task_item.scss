@@ -35,7 +35,7 @@
     }
 
     .taskup-task-date{        
-        @include fontStyle($bold, 12, 18, $lightBlack);
+        @include fontStyle($bold, 12, 18, $lighterBlack);
         display: block;
     }
 
@@ -47,7 +47,7 @@
         transform: translateY(-50%) rotate(-5deg);
         transition: 0.2s linear;
         i{            
-            @include fontStyle(0, 16, 18, $lightBlack);
+            @include fontStyle(0, 16, 18, $lighterBlack);
             font-weight: 500;
         }
     }

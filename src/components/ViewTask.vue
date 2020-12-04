@@ -2,22 +2,32 @@
     <!-- View Task -->
     
     <div class="task-popup taskup-view-task-popup">
-        <div class="task-popup-inner">
+        <div class="task-popup-inner" :class=[task.task_color.color]>
 
             <!-- Close Popup -->
             <button class="task-back-popup" @click="closePopup">
                 <span><i class="far fa-arrow-left"></i></span>
             </button>
 
-            <div class="taskup-view-task">
-                {{ task }}
+            <div class="taskup-view-task"> 
+                <div class="taskup-task-status">
+                    <span :class=[task.task_status]>{{ task.task_status }}</span>
+                </div>
+                
+                <div class="taskup-task-content">
 
-                <h2>{{ task.task_name }}</h2>  
+                    <h2>{{ task.task_name }}</h2>  
 
-                <p>{{ task.task_desc }}</p> 
+                    <p>{{ task.task_desc }}</p> 
 
-                <div class="taskup-view-task-date">
-                    <span> {{ getDate(task.task_date) }} </span>
+                    <div class="taskup-view-task-date">                        
+                        <p> 
+                            <i class="far fa-clock"></i> 
+                            Date: 
+                            <span> {{ getDate(task.task_date) }} </span>
+                        </p>
+                    </div>
+
                 </div>
                 
             </div>
@@ -42,6 +52,10 @@ export default {
         return {
         }
     },
+    created() {
+
+        window.addEventListener('keyup', this.keyupEvent); 
+    },
     methods: {
         // Get Date
         getDate(date){
@@ -51,6 +65,13 @@ export default {
         // Close Popup
         closePopup(){
             this.$emit('close-popup');
+        },
+
+        // Keyup Event
+        keyupEvent(e){ 
+            if (e.keyCode === 27) {
+                this.closePopup();
+            }
         }
 
     }
