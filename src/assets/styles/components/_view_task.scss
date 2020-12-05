@@ -34,6 +34,9 @@
             text-transform: capitalize;
             @include fontStyle($bold, 14, 24, $theme_black);
             border-radius: 4px;
+            @include mediaQuery(576){
+                @include mediaFontStyle(12, 20);
+            }
 
             &.to-do{
                 background: rgba($blue, 0.2);
@@ -43,19 +46,25 @@
                 background: rgba($yellow, 0.2);  
                 color: $yellow;              
             }
-            &.done{
+            &.completed{
                 background: rgba($green, 0.2);
                 color: $green;
             }
         }   
     }
     .taskup-task-content{
-        padding: 20px 0;
+        padding: 20px 0 10px;
         h2{
-            @include fontStyle($bold, 26, 34, $theme_black);
+            @include fontStyle($semiBold, 26, 34, $theme_black);
             margin-bottom: 10px;
+            @include mediaQuery(768){
+                @include mediaFontStyle(22, 32);
+            }
+            @include mediaQuery(576){
+                @include mediaFontStyle(20, 30);
+            }
         }
-        p{
+        > p{
             font-family: $semiBold;
             color: $lightBlack; 
             margin-bottom: 20px;
@@ -68,12 +77,23 @@
             padding: 5px 10px;
             border-radius: 4px;
             @include fontStyle($medium, 12, 18, $theme_black); 
+            @include mediaQuery(576){
+                @include mediaFontStyle(10, 16);
+            }
             i{
                 margin-right: 5px; 
             }
             span{
                 font-family: $bold;
             }
+        }
+    }
+    .taskup-view-task-options{
+        padding-top: 30px;
+        text-align: right;
+        .task-btn{
+            border-radius: 4px;
+            margin-left: 20px;
         }
     }
 }

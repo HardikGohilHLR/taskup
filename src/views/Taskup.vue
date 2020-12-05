@@ -37,7 +37,7 @@
                 </div>    
 
                 <!-- Tasks -->
-                <Tasks :active_task_type="active_task_type"/>
+                <Tasks :active_task_type="active_task_type" :all_tasks="all_tasks"/>
                     
 
             </div>
@@ -71,7 +71,15 @@ export default {
             active_task_type: 'to-do',
             popup_active: false,
             popup: '',
+            all_tasks: [] 
         }
+    },
+
+    mounted(){
+        
+        let taskup_tasks = JSON.parse(localStorage.getItem("taskup_tasks"));
+
+        this.all_tasks = taskup_tasks;
     },
 
     methods: {
@@ -83,9 +91,11 @@ export default {
         },
     
         // Close Popup
-        closePopup(){
+        closePopup(data){
             this.popup_active = false;
             this.popup = '';
+
+            this.all_tasks = data;
         },
 
         // Task type

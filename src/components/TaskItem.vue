@@ -49,7 +49,6 @@ export default {
 
         // View Task
         viewTask(){
-            console.log('view edit');
             this.view_task = true;
         },
 
@@ -60,7 +59,7 @@ export default {
 
         // Close popup
         closePopup(){
-            this.view_task = !this.view_task;
+            this.view_task = false;
         }
     }
 }

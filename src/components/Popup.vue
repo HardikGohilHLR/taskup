@@ -28,8 +28,8 @@ export default {
     methods: {
 
         // Close Popup
-        closePopup(){
-            this.$emit('close-popup');
+        closePopup(data){
+            this.$emit('close-popup', data);
         }
     }
 }

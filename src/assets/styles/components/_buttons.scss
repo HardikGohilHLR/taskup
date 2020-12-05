@@ -21,6 +21,12 @@
             box-shadow: 0 0 6px rgba($green, 0.6);
         }
     }
+    &-yellow{
+        background: $yellow;
+        &:hover{
+            box-shadow: 0 0 6px rgba($yellow, 0.6);
+        }
+    }
     &-black{
         background: $theme_black;
         &:hover{

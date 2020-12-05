@@ -57,7 +57,7 @@ export default {
             task_statuses: [
                 { title: 'to-do', is_checked: true},
                 { title: 'in-progress', is_checked: false},
-                { title: 'done', is_checked: false},
+                { title: 'completed', is_checked: false},
             ], 
             task_color: '#f76f8c',
             task_colors: [
@@ -82,8 +82,7 @@ export default {
 
         // Create task
         createTask(){ 
-            console.log('submit');
-             console.log(this.task_colors.find(color => color.is_checked));   
+            
             if(!this.validateForm()) { return; }
 
             let task = {
@@ -103,12 +102,12 @@ export default {
             taskup_tasks.push(task);
             localStorage.setItem("taskup_tasks", JSON.stringify(taskup_tasks));
 
-            this.closePopup();
+            this.closePopup(taskup_tasks);
         },
 
         // Close Popup
-        closePopup(){
-            this.$emit('close-popup');
+        closePopup(taskup_tasks){
+            this.$emit('close-popup', taskup_tasks);
         }
     }
 }

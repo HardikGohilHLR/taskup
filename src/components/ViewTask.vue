@@ -28,6 +28,25 @@
                         </p>
                     </div>
 
+                    <div class="taskup-view-task-options"> 
+
+                        <button 
+                            class="task-btn task-btn-yellow taskup-view-task-progress" 
+                            v-if="task.task_status === 'to-do'"
+                            @click="markProgress"
+                        >
+                            Mark in-progess
+                        </button>
+
+                        <button 
+                            class="task-btn task-btn-green taskup-view-task-completed" 
+                            v-if="task.task_status === 'to-do' || task.task_status === 'in-progress'"
+                            @click="markCompleted"
+                        >
+                            Mark completed
+                        </button>
+                    </div>                        
+
                 </div>
                 
             </div>
@@ -47,19 +66,32 @@ export default {
             type: Object,
             required: true
         }
-    },
-    data() {
-        return {
+    }, 
+    data(){
+        return{
+            current_task: {}
         }
     },
     created() {
-
+        // Keyup Event
         window.addEventListener('keyup', this.keyupEvent); 
+
+        this.current_task = this.task;
     },
     methods: {
         // Get Date
         getDate(date){
             return moment(date).format('LL');
+        },
+
+        // // Mark Progress
+        markProgress(){
+            this.current_task.task_status = 'in-progress';
+        },
+
+        // Mark Completed
+        markCompleted(){
+            this.current_task.task_status = 'completed';
         },
 
         // Close Popup

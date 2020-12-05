@@ -14,6 +14,10 @@ export default {
     props: {
         active_task_type: {
             type: String
+        },
+        all_tasks: {
+            type: Array,
+            required: true
         }
     },
     components: {
@@ -21,7 +25,7 @@ export default {
     },
     data(){
         return {            
-            all_tasks: [],
+            taskup_tasks: [],
             tasks: []
         }
     },
@@ -47,9 +51,7 @@ export default {
 
         // Get All Tasks
         getAllTasks(){
-            let taskup_tasks = JSON.parse(localStorage.getItem('taskup_tasks'));
-
-            this.all_tasks = taskup_tasks;
+            this.taskup_tasks = this.all_tasks;
         },
     }
 }
