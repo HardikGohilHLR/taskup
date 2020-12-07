@@ -11,7 +11,7 @@
             <div class="task-content">
                 <h2>Add Task</h2>
 
-                <AddTask @closePopup="closePopup"/>
+                <AddTask @closePopup="closeThisPopup"/>
             </div>
         </div>
     </div>
@@ -28,7 +28,11 @@ export default {
     methods: {
 
         // Close Popup
-        closePopup(data){
+        closePopup(){
+            this.$emit('close-popup');
+        },
+
+        closeThisPopup(data){
             this.$emit('close-popup', data);
         }
     }

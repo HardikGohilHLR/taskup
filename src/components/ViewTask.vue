@@ -73,11 +73,15 @@ export default {
         }
     },
     created() {
-        // Keyup Event
-        window.addEventListener('keyup', this.keyupEvent); 
-
+        
         this.current_task = this.task;
     },
+    mounted(){
+        // Keyup Event
+        window.addEventListener('keyup', this.keyupEvent); 
+        // Body click Event
+        window.addEventListener('click', this.bodyClick);
+    },    
     methods: {
         // Get Date
         getDate(date){
@@ -97,6 +101,13 @@ export default {
         // Close Popup
         closePopup(){
             this.$emit('close-popup');
+        },
+
+        // Body click
+        bodyClick(e){            
+            if(e.target.classList.contains('task-popup')) { 
+                this.closePopup();
+            }
         },
 
         // Keyup Event

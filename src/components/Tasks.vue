@@ -32,12 +32,14 @@ export default {
     computed: {
         // Get Tasks
         getTasks(){
-            let tasks = [];    
-            this.all_tasks.forEach(task => {                 
-                if(task.task_status === this.active_task_type) { 
-                    tasks.push(task);
-                }
-            });        
+            let tasks = [];  
+            if(this.all_tasks.length) {  
+                this.all_tasks.forEach(task => {                 
+                    if(task.task_status === this.active_task_type) { 
+                        tasks.push(task);
+                    }
+                });     
+            }    
 
             return tasks;
         }

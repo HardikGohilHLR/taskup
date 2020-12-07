@@ -106,7 +106,7 @@ export default {
         },
 
         // Close Popup
-        closePopup(taskup_tasks){
+        closePopup(taskup_tasks){ 
             this.$emit('close-popup', taskup_tasks);
         }
     }

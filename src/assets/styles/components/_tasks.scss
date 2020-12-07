@@ -4,3 +4,8 @@
     width: 100%;
     margin: 0 auto;
 }
+
+.taskup-not-found{
+    text-align: center;    
+    @include fontStyle($semiBold, 18, 30, $theme_black);
+}

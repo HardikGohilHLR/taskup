@@ -2,7 +2,8 @@
 
     <header>
         <h2>Hey <span>{{ greetingMessage }}</span>!</h2>
-        <p>You have some important tasks to do! Please Take a look.</p>
+        <p v-if="tasks_added">You have some important tasks to do! Please Take a look.</p>
+        <p v-else>Please create tasks to proceed.</p>
     </header>
 
 </template>
@@ -10,6 +11,12 @@
 <script>
 export default {
     name: 'TaskHeader',
+    props: {
+        tasks_added: {
+            type: Boolean,
+            required: true
+        }
+    },
     computed: {
         greetingMessage(){
             let hrs = new Date().getHours();

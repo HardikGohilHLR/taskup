@@ -15,6 +15,9 @@
             @include fontStyle($bold, 16, 22, $theme_black);
             text-transform: capitalize;
             margin-bottom: 2px;
+            @include mediaQuery(480){
+                @include mediaFontStyle(14, 20);
+            }
             span{                
                 @include fontStyle($bold, 12, 22, $green);
             }
@@ -54,6 +57,10 @@
             transition: 0.3s linear;
             position: relative;
             text-transform: capitalize;
+            @include mediaQuery(480){
+                padding: 7px;
+            }
+
             &.to-do{
                 background: rgba($blue, 0.2);
                 &:hover{

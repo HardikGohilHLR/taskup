@@ -10,7 +10,7 @@
                 </div>
 
                 <!-- Header -->
-                <TaskHeader />
+                <TaskHeader :tasks_added="all_tasks ? true : false" />
 
                 <!-- Content -->
 
@@ -37,8 +37,8 @@
                 </div>    
 
                 <!-- Tasks -->
-                <Tasks :active_task_type="active_task_type" :all_tasks="all_tasks"/>
-                    
+                <Tasks :active_task_type="active_task_type" :all_tasks="all_tasks" v-if="all_tasks"/>
+                <p class="taskup-not-found" v-else>Please add some tasks.</p>    
 
             </div>
 
@@ -94,8 +94,9 @@ export default {
         closePopup(data){
             this.popup_active = false;
             this.popup = '';
-
-            this.all_tasks = data;
+            if(data) {
+                this.all_tasks = data;
+            }
         },
 
         // Task type

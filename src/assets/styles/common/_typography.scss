@@ -23,11 +23,14 @@
 
 h2{
     @include fontStyle($bold, 22, 32, $theme_black);
+    @include mediaQuery(480){
+        @include mediaFontStyle(20, 30);
+    }
 }
 
 p{
     @include fontStyle($regular, 16, 26, $theme_black);
-    @include mediaQuery(576){
+    @include mediaQuery(480){
         @include mediaFontStyle(14, 22);
     }
 }
