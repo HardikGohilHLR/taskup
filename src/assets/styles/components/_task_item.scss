@@ -20,12 +20,6 @@
         cursor: pointer;
     }
 
-    &:hover{        
-        .taskup-task-edit{
-            opacity: 1;
-        }
-    }
-
     .tasktup-task-title{
         margin-bottom: 5px;
         h3{            
@@ -41,7 +35,6 @@
 
     .taskup-task-edit{
         position: absolute;
-        opacity: 0;
         right: 40px;
         top: 50%;
         transform: translateY(-50%) rotate(-5deg);
@@ -63,5 +56,12 @@
     }
     &.purple{
         border-color: #8676fe;
+    }
+
+    &.completed{
+        .taskup-task-edit{
+            display: none;
+        }
+
     }
 } 

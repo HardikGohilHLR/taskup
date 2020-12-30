@@ -10,7 +10,7 @@
                 </div>
 
                 <!-- Header -->
-                <TaskHeader :tasks_added="all_tasks ? true : false" />
+                <TaskHeader />
 
                 <!-- Content -->
 
@@ -50,6 +50,7 @@
 </template>
 
 <script>
+// Components
 import TaskHeader from "@/components/TaskHeader";
 import Tasks from "@/components/Tasks";
 import Popup from "@/components/Popup";
@@ -71,15 +72,13 @@ export default {
             active_task_type: 'to-do',
             popup_active: false,
             popup: '',
-            all_tasks: [] 
         }
     },
 
-    mounted(){
-        
-        let taskup_tasks = JSON.parse(localStorage.getItem("taskup_tasks"));
-
-        this.all_tasks = taskup_tasks;
+    computed: {
+        all_tasks () {
+            return this.$store.getters.allTasks;
+        }
     },
 
     methods: {
@@ -91,12 +90,9 @@ export default {
         },
     
         // Close Popup
-        closePopup(data){
+        closePopup(){ 
             this.popup_active = false;
             this.popup = '';
-            if(data) {
-                this.all_tasks = data;
-            }
         },
 
         // Task type

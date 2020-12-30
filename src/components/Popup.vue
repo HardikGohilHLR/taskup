@@ -9,9 +9,13 @@
 
             <!-- Content -->
             <div class="task-content">
-                <h2>Add Task</h2>
+                <h2>{{ !edit_task ? 'Add Task' : 'Edit Task'}}</h2>
 
-                <AddTask @closePopup="closeThisPopup"/>
+                <!-- Edit Task -->                 
+                <EditTask :task="task" @closePopup="closePopup" v-if="edit_task"/>
+                
+                <!-- Add Task -->
+                <AddTask @closePopup="closePopup" v-else/>
             </div>
         </div>
     </div>
@@ -19,12 +23,31 @@
 
 <script>
 import AddTask from '@/components/AddTask';
+import EditTask from './EditTask.vue';
 
 export default {
     name: 'Popup',
     components: {
-        AddTask
+        AddTask,
+        EditTask
     },
+    props: {
+        edit_task: {
+            type: Boolean,
+            required: true
+        },
+        task: {
+            type: Object,
+            required: true
+        },
+    },
+    mounted(){
+        // Keyup Event
+        window.addEventListener('keyup', this.keyupEvent); 
+        // Body click Event
+        window.addEventListener('click', this.bodyClick);
+    },   
+
     methods: {
 
         // Close Popup
@@ -32,9 +55,16 @@ export default {
             this.$emit('close-popup');
         },
 
-        closeThisPopup(data){
-            this.$emit('close-popup', data);
-        }
+        // Body click
+        bodyClick(e){            
+            e.target.classList.contains('task-popup') ? this.closePopup() : '';
+        },
+
+        // Keyup Event
+        keyupEvent(e){ 
+            e.keyCode === 27 ? this.closePopup() : '';
+        }        
+        
     }
 }
 

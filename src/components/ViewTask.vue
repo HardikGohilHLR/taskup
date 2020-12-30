@@ -72,10 +72,11 @@ export default {
             current_task: {}
         }
     },
-    created() {
-        
+    
+    created() {        
         this.current_task = this.task;
     },
+
     mounted(){
         // Keyup Event
         window.addEventListener('keyup', this.keyupEvent); 
@@ -96,14 +97,7 @@ export default {
                 this.current_task.task_status = 'completed';
             }
             
-            let taskup_tasks = JSON.parse(localStorage.getItem("taskup_tasks"));
-
-            let task_index = taskup_tasks.findIndex(task => task.task_id === this.current_task.task_id);
-
-            taskup_tasks[task_index] = this.current_task;
-
-            console.log(JSON.stringify(taskup_tasks));
-            localStorage.setItem("taskup_tasks", JSON.stringify(taskup_tasks));
+            this.$store.dispatch('markTaskStatus', this.current_task);            
         },
 
         // Close Popup

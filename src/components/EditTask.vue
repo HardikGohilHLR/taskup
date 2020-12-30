@@ -36,7 +36,7 @@
         </div>
 
         <div class="btn-group">
-            <button type="button" class="task-btn task-btn-green" @click="createTask">Create Task</button>
+            <button type="button" class="task-btn task-btn-green" @click="editTask">Edit Task</button>
         </div>
             
     </form>
@@ -46,20 +46,30 @@
 <script>
 
 export default {
-    name: 'AddTask',
+    name: 'EditTask',
+    
+    props: {
+        task: {
+            type: Object,
+            required: true
+        },
+    },
+    mounted(){
+        this.setTaskDetails();
+    },
     data() {
         return {
-            task_name: '',
+            task_name: this.task.task_name,
             task_name_error: false,
-            task_desc: '',
+            task_desc: this.task.task_desc,
             task_desc_error: false,
-            task_status: 'to-do',
+            task_status: this.task.task_status,
             task_statuses: [
                 { title: 'to-do', is_checked: true},
                 { title: 'in-progress', is_checked: false},
                 { title: 'completed', is_checked: false},
             ], 
-            task_color: 'pink',
+            task_color: this.task.task_color,
             task_colors: [
                 { color: 'pink', code: '#f76f8c', is_checked: true}, 
                 { color: 'green', code: '#0EBC7D', is_checked: false }, 
@@ -69,6 +79,23 @@ export default {
         }
     },
     methods: {
+
+        setTaskDetails(){
+            this.task_statuses.forEach(status => {
+                if(status.title === this.task.task_status) {
+                    status.is_checked = true;
+                } else {
+                    status.is_checked = false;
+                }
+            });
+            this.task_colors.forEach(color => {
+                if(color.color === this.task.task_color) {
+                    color.is_checked = true;
+                } else {
+                    color.is_checked = false;
+                }
+            });
+        },
 
         // Validate Form
         validateForm(){
@@ -81,21 +108,23 @@ export default {
         },
 
         // Create task
-        createTask(){ 
+        editTask(){ 
             
             if(!this.validateForm()) { return; }
 
             let task = {
+                task_id: this.task.task_id,
                 task_name: this.task_name,
                 task_desc: this.task_desc,
                 task_status: this.task_status,
                 task_color: this.task_color,
-                task_date: new Date().toISOString()
+                task_date: this.task.task_date
             }; 
-            
-            this.$store.dispatch('addTask', task);
+ 
+            this.$store.dispatch('editTask', task);
             this.$emit('close-popup');
         },
+
     }
 }
 

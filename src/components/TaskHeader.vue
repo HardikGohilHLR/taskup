@@ -2,8 +2,9 @@
 
     <header>
         <h2>Hey <span>{{ greetingMessage }}</span>!</h2>
-        <p v-if="tasks_added">You have some important tasks to do! Please Take a look.</p>
-        <p v-else>Please create tasks to proceed.</p>
+        
+        <p v-if="is_all_completed">Please create tasks to proceed.</p>
+        <p v-else>You have some important tasks to do! Please Take a look.</p>
     </header>
 
 </template>
@@ -16,8 +17,10 @@ export default {
             type: Boolean,
             required: true
         }
-    },
+    }, 
     computed: {
+
+        // Greeting Message
         greetingMessage(){
             let hrs = new Date().getHours();
             let greeting_message;
@@ -33,7 +36,23 @@ export default {
             }
              
             return greeting_message;
+        },
+
+        // List all tasks
+        all_tasks () {
+            return this.$store.getters.allTasks;
+        },
+
+        // Is all tasks completed
+        is_all_completed(){
+            
+            let is_all_complete = this.all_tasks.every(task => {
+                return task.task_status === 'completed';
+            });
+ 
+            return is_all_complete;
         }
-    }
+
+    }, 
 }
 </script>

@@ -94,6 +94,29 @@
         .task-btn{
             border-radius: 4px;
             margin-left: 20px;
+            margin-bottom: 5px;
+            border: 2px solid transparent;
+            @include mediaQuery(576){
+                @include mediaFontStyle(12, 16);
+            }
+
+            &-yellow{
+                &:hover{
+                    background: $white;
+                    border-color: $yellow;
+                    color: $yellow;
+                    box-shadow: none;
+                }
+            }
+
+            &-green{
+                &:hover{
+                    background: $white;
+                    border-color: $green;
+                    color: $green;
+                    box-shadow: none;
+                }
+            }
         }
     }
 }
