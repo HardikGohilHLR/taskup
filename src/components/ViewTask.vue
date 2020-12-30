@@ -2,7 +2,7 @@
     <!-- View Task -->
     
     <div class="task-popup taskup-view-task-popup">
-        <div class="task-popup-inner" :class=[task.task_color.color]>
+        <div class="task-popup-inner" :class=[task.task_color]>
 
             <!-- Close Popup -->
             <button class="task-back-popup" @click="closePopup">
@@ -33,7 +33,7 @@
                         <button 
                             class="task-btn task-btn-yellow taskup-view-task-progress" 
                             v-if="task.task_status === 'to-do'"
-                            @click="markProgress"
+                            @click="markTaskStatus('progress')"
                         >
                             Mark in-progess
                         </button>
@@ -41,7 +41,7 @@
                         <button 
                             class="task-btn task-btn-green taskup-view-task-completed" 
                             v-if="task.task_status === 'to-do' || task.task_status === 'in-progress'"
-                            @click="markCompleted"
+                            @click="markTaskStatus('completed')"
                         >
                             Mark completed
                         </button>
@@ -88,14 +88,22 @@ export default {
             return moment(date).format('LL');
         },
 
-        // // Mark Progress
-        markProgress(){
-            this.current_task.task_status = 'in-progress';
-        },
+        // Mark Task Status
+        markTaskStatus(status){
+            if(status === 'progress') { 
+                this.current_task.task_status = 'in-progress';
+            } else {
+                this.current_task.task_status = 'completed';
+            }
+            
+            let taskup_tasks = JSON.parse(localStorage.getItem("taskup_tasks"));
 
-        // Mark Completed
-        markCompleted(){
-            this.current_task.task_status = 'completed';
+            let task_index = taskup_tasks.findIndex(task => task.task_id === this.current_task.task_id);
+
+            taskup_tasks[task_index] = this.current_task;
+
+            console.log(JSON.stringify(taskup_tasks));
+            localStorage.setItem("taskup_tasks", JSON.stringify(taskup_tasks));
         },
 
         // Close Popup

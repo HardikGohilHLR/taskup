@@ -29,7 +29,7 @@
             <label for="task_color">color</label>
             <div class="form-radio-group">
                 <div class="form-group-radio" v-for="color in task_colors" :key="color.color">
-                    <input type="radio" :id="color.color" name="task_color" :value="color.code" :checked="color.is_checked" v-model="task_color" :style="{ backgroundColor: color.code }">
+                    <input type="radio" :id="color.color" name="task_color" :value="color.color" :checked="color.is_checked" v-model="task_color" :style="{ backgroundColor: color.code }">
                     <label :for="color.color" :style="{ 'background-color': color.code }"><span class="form-radio-checked"></span></label>
                 </div>                
             </div>
@@ -59,7 +59,7 @@ export default {
                 { title: 'in-progress', is_checked: false},
                 { title: 'completed', is_checked: false},
             ], 
-            task_color: '#f76f8c',
+            task_color: 'pink',
             task_colors: [
                 { color: 'pink', code: '#f76f8c', is_checked: true}, 
                 { color: 'green', code: '#0EBC7D', is_checked: false }, 
@@ -90,10 +90,10 @@ export default {
                 task_name: this.task_name,
                 task_desc: this.task_desc,
                 task_status: this.task_status,
-                task_color: this.task_colors.find(color => color.is_checked),
+                task_color: this.task_color,
                 task_date: new Date().toISOString()
             };
-            
+            console.log(this.task_colors.find(color => color.is_checked));
             let taskup_tasks = JSON.parse(localStorage.getItem("taskup_tasks"));
             
             taskup_tasks = !taskup_tasks ? [] : taskup_tasks;

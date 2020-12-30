@@ -38,7 +38,7 @@ export default {
     data(){
         return {
             view_task: false,
-            current_color: this.task.task_color.color
+            current_color: this.task.task_color
         }
     },
     methods: {
