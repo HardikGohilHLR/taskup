@@ -5,8 +5,8 @@
             <div class="task-container">
 
                 <!-- Logo -->
-                <div class="task-logo">
-                    <h1>Taskup</h1>
+                <div class="task-logo"> 
+                    <img src="../assets/images/taskup.svg"/>
                 </div>
 
                 <!-- Header -->

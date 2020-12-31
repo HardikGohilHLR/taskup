@@ -40,7 +40,7 @@ export default {
 
         // List all tasks
         all_tasks () {
-            return this.$store.getters.allTasks;
+            return this.$store.getters.allTasks || [];
         },
 
         // Is all tasks completed

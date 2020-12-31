@@ -59,6 +59,7 @@
             text-transform: capitalize;
             @include mediaQuery(480){
                 padding: 7px;
+                font-size: 12px;
             }
 
             &.to-do{
